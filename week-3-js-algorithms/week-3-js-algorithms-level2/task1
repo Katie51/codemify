@@ -1,0 +1,11 @@
+function checkGreaterTen(num) {
+    if (num > 10){
+                return ("Greater than 10")
+            }
+            else {
+                return ("Not greater than 10")
+            }
+}
+console.log(checkGreaterTen(15)); // "Greater than 10"
+console.log(checkGreaterTen(5)); // "Not greater than 10"
+console.log(checkGreaterTen(10)); // "Not greater than 10"
