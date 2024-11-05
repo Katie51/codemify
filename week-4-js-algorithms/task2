@@ -1,0 +1,33 @@
+// // Challenge 2: Find the Largest Number
+// // Write a function to find the largest number in the array.
+// // Usage examples:
+// // console.log(findLargestNumber([1, 2, 3, 4, 5])); // 5
+// // console.log(findLargestNumber([10, 20, 30, 40, 50])); // 50
+// // console.log(findLargestNumber([-1, -2, -3, -4, -5])); // -1
+
+
+
+function findLargestNumber(array){
+
+ let num = []
+ for (let i = 0; i < array.length; i++) {
+  
+  if (num < array[i]){
+     num = array[i];
+    }
+  
+  }
+ return num
+}
+console.log(findLargestNumber([1, 46, 45678, 50000000, 765]))
+
+
+
+
+
+
+
+
+
+
+
