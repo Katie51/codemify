@@ -1,0 +1,20 @@
+const numbers = [34, 54,48,5,67]
+
+// let smalest = numbers[0]
+
+// numbers.forEach((num) => (num));
+
+// console.log(smalest)
+
+
+
+
+let smalest = 34
+
+for (let i = 0; i < numbers.length; i++) {
+    if (smalest > numbers[i])
+        smalest = numbers[i]
+  
+//    return smalest 
+}
+console.log(smalest)
