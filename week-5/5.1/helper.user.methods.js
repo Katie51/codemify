@@ -19,7 +19,7 @@ class Helpers {
     }
 
     getUserBalanceByCurrency(response, currency) {
-        const balances = response.users.filter((user) => user.currency == currency).map((user) => user.balance);
+        const balances = response.users.filter((user) => user.currency == currency).map((user) => user.balance.replace('$',''));
 
         return balances;
     }
