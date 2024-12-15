@@ -1,6 +1,6 @@
-import dashboardPage from "../../../../page_objects/dashboard.page"
-import homePage from "../../../../page_objects/home.page"
-import loginPage from "../../../../page_objects/login.page"
+import dashboardPage from "../../../page_object/dashboard.page"
+import homePage from "../../../page_object/home.page"
+import loginPage from "../../../page_object/login.page"
 
 describe('Login', () => {
     beforeEach(() => {
