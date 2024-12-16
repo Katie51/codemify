@@ -1,5 +1,7 @@
 import homePage from "../../page_object/home.page"
 import registrationPage from "../../page_object/registration.page"
+// import homePage from "../../page_object/home.page"
+// import registrationPage from "../../page_object/registration.page"
 
 describe
     ('Registration', () => {

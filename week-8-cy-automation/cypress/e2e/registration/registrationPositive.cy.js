@@ -4,6 +4,10 @@ import homePage from '../../page_object/home.page';
 import loginPage from '../../page_object/login.page';
 import dashboardPage from '../../page_object/dashboard.page';
 import registrationPage from '../../page_object/registration.page';
+// import homePage from '../../page_object/home.page';
+// import loginPage from '../../page_object/login.page';
+// import dashboardPage from '../../page_object/dashboard.page';
+// import registrationPage from '../../page_object/registration.page';
 
 const email = faker.internet.email();
 const password = faker.string.uuid();
