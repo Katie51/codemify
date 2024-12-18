@@ -24,9 +24,11 @@ describe('example to-do app', () => {
 
     const randomIndex = Math.floor(Math.random() * 6);
     listingPage.moreInfoButton.eq(randomIndex).click();
-    listingPage.bedroomIcon.should('not.have.text', '0,1');
-
-  })
+    listingPage.bedroomIcon.invoke("text").then((text) => {
+    const bedroomCount = parseInt(text, 10); 
+    expect(bedroomCount).to.be.at.least(2); 
+  });
+      
   it('Should search by city ', () => {
 
     homePage.cityInput.eq(1).type('Armonk');
