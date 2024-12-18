@@ -1,9 +1,6 @@
 import loginPage from "../../../page_object/login.page"
 import homePage from "../../../page_object/home.page"
 import dashboardPage from "../../../page_object/dashboard.page"
-// import loginPage from "../../page_object/login.page"
-// import homePage from "../../page_object/home.page"
-// import dashboardPage from "../../page_object/dashboard.page"
 
 describe('Login', () => {
   beforeEach(() => {
