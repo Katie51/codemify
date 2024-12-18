@@ -11,7 +11,11 @@ class ListingPage{
     get bathroomIcon() { return cy.contains('Bathrooms')}
     get propertyName() { return  cy.get('.MuiGrid-root.MuiGrid-item h3')}
     get priceRange() { return cy.visit('https://dev.delekhomes.com/featured-listings?price=1000000-1000000&city=Armonk');}
-    get urlCheck() { return cy.url().should('include', `price=${1000000}`)}
+    get urlCheck() { return cy.url().invoke("text").then((priceText) => {
+      const price = parseInt(priceText.replace(/[$,]/g, "").trim(), 10);
+
+      cy.wrap(price).should("be.at.least", 1000000).and("be.lte", 1000000);
+    });}
     get firstInfoButton() { return cy.get('[class="MuiBox-root css-xi606m"]').eq(0)}
     get searchInput() { return cy.get('[type="text"]').eq(0)}
     get startSearch() { return cy.get('.MuiBox-root.css-1t9pz9x.iconify.iconify--eva')}
