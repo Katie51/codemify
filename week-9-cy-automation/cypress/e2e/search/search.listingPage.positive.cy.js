@@ -1,12 +1,10 @@
 import homePage from "../../page_object/home.page"
 import featureListingPage from "../../page_object/featureListing.page"
+import listingDetails from "../../fixtures/listingDetails.json"
 
 describe('example to-do app', () => {
   beforeEach(() => {
-
-    Cypress.on('uncaught:exception', (err, runnable) => {
-      return false
-    })
+    cy.errorHandler();
     cy.visit('/')
     homePage.nightMode.click();
     homePage.featureListingButton.click();
@@ -16,7 +14,7 @@ describe('example to-do app', () => {
   it('Should search by keyword', () => {
     featureListingPage.searchInput.type('picturesque oasis');
     featureListingPage.startSearch.click();
-    featureListingPage.listingTitle.should('have.text', 'Modern picturesque oasis')
+    featureListingPage.listingTitle.should('have.text', listingDetails.title)
   })
 
   it('Should search by bedrooms', () => {
@@ -36,18 +34,17 @@ describe('example to-do app', () => {
     featureListingPage.cityInput.type('Armonk');
     featureListingPage.startSearch.click();
     featureListingPage.moreInfoButton.should('have.text', 'More Info').click();
-    featureListingPage.propertyName.should('have.text', 'Modern picturesque oasis')
-    featureListingPage.askingPriceIcon.should('have.text', ' Asking Price: $ 1,000,000');
-    featureListingPage.squareFeetIcon.should('have.text', ' Square Feet: 11000');
-    featureListingPage.lotSizeIcon.should('have.text', ' Lot Size: 2');
-    featureListingPage.listingDateIcon.should('have.text', ' Listing Date: 06 December 2024');
-    featureListingPage.garageIcon.should('have.text', ' Garage: 2');
-    featureListingPage.bathroomIcon.should('have.text', ' Bathrooms: 3');
-    featureListingPage.bedroomIcon.should('have.text', ' Bedrooms: 2');
+    featureListingPage.propertyName.should('have.text', listingDetails.title)
+    listingDetails.listingInfo.forEach((info) => {
+        const [key, value] = info.split(':'); 
+        cy.contains(`${key.trim()}:`) 
+          .invoke('text') 
+          .should('include', info.replace(/\u00a0/g, ' ').trim()); 
+      });
   })
 
   it('Should search by price ', () => {
-    cy.visit('https://dev.delekhomes.com/featured-listings?price=999999-1000001&city=Armonk')
+    cy.visit('/featured-listings?price=999999-1000001&city=Armonk')
     featureListingPage.priceRange;
     featureListingPage.urlCheck;
   })

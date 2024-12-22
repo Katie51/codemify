@@ -1,4 +1,11 @@
-// ***********************************************
+Cypress.Commands.add('errorHandler', () => {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      console.warn('Ignoring uncaught exception:', err);
+      return false;
+    });
+  });
+  
+  // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
 // existing commands.
