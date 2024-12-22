@@ -3,6 +3,15 @@ Cypress.Commands.add('errorHandler', () => {
       console.warn('Ignoring uncaught exception:', err);
       return false;
     });
+});
+
+    Cypress.Commands.add("loginApi", (email, password) => {
+        cy.request("POST", "/api/users/login", {
+          email: email,
+          password: password,
+        }).then((response) => {
+          window.localStorage.setItem("accessToken", response.body.accessToken);
+        });
   });
   
   // ***********************************************
