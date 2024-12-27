@@ -22,12 +22,12 @@ describe('Registration', () => {
         registrationPage.passwordInput.type(password);
         registrationPage.submitBtn.click();
         dashboardPage.roleLabel.should('have.text', userCredentials.labelRoleUser);
-        dashboardPage.fullNameLabel.should('have.text', userCredentials.labelFirstNLastN);
+        dashboardPage.fullNameLabel.should('have.text', userCredentials.labelFirstNameLastName);
         dashboardPage.userIconBtn.click();
         dashboardPage.logoutBtn.click();
         loginPage.loginBtn.click();
         loginPage.login(email, password);
         dashboardPage.roleLabel.should('have.text', userCredentials.labelRoleUser);
-        dashboardPage.fullNameLabel.should('have.text', userCredentials.labelFirstNLastN);
+        dashboardPage.fullNameLabel.should('have.text', userCredentials.labelFirstNameLastName);
     })
 })

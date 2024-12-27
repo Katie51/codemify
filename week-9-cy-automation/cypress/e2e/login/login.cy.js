@@ -5,7 +5,6 @@ import userCredentials from "../../fixtures/userCredentials.json"
 
 describe('Login', () => {
   beforeEach(() => {
-    cy.errorHandler();
     cy.visit('/')
   })
 
@@ -15,7 +14,7 @@ describe('Login', () => {
     loginPage.emailInput.type(userCredentials.email);
     loginPage.passwordInput.type(userCredentials.password);
     loginPage.loginBtn.click();
-    dashboardPage.roleLabel.should('have.text', 'role: user');
-    dashboardPage.fullNameLabel.should('have.text', 'Aro  Solo');
+    dashboardPage.roleLabel.should('have.text', userCredentials.labelRoleUser);
+    dashboardPage.fullNameLabel.should('have.text', userCredentials.labelFirstNameLastName);
   })
 })

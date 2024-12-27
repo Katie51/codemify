@@ -10,7 +10,7 @@ class FeatureListingPage {
     get garageIcon() { return cy.contains(' Garage: ') }
     get bathroomIcon() { return cy.contains('Bathrooms') }
     get propertyName() { return cy.get('.MuiGrid-root.MuiGrid-item h3') }
-    get priceRange() { return cy.visit('https://dev.delekhomes.com/featured-listings?price=1000000-1000000&city=Armonk'); }
+    get priceRange() { return cy.visit('/featured-listings?price=1000000-1000000&city=Armonk'); }
     get urlCheck() {
         return cy.url().then((url) => {
             const priceRange = url.match(/price=(\d+)-(\d+)/); // Regex to capture price range

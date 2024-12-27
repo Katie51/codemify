@@ -2,7 +2,7 @@ import homePage from "../../page_object/home.page"
 import featureListingPage from "../../page_object/featureListing.page"
 import listingDetails from "../../fixtures/listingDetails.json"
 
-describe('example to-do app', () => {
+describe('Search homePage', () => {
   beforeEach(() => {
     cy.errorHandler();
     cy.visit('/')
@@ -11,9 +11,10 @@ describe('example to-do app', () => {
 
   it('Should search by keyword ', () => {
 
-    homePage.searchInput.first().type('picturesque oasis');
+    homePage.searchInput.first().type(listingDetails.title);
     homePage.startSearch.click();
     featureListingPage.listingTitle.should('have.text', listingDetails.title);
+
   })
   it('Should search by bedrooms ', () => {
 
@@ -47,9 +48,11 @@ describe('example to-do app', () => {
   })
 
   it('Should search by price ', () => {
+
     cy.visit('/featured-listings?price=999999-1000001&city=Armonk')
     featureListingPage.priceRange;
     featureListingPage.urlCheck;
+    
   })
 })
 

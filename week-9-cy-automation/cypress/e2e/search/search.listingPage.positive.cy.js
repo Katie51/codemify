@@ -2,7 +2,7 @@ import homePage from "../../page_object/home.page"
 import featureListingPage from "../../page_object/featureListing.page"
 import listingDetails from "../../fixtures/listingDetails.json"
 
-describe('example to-do app', () => {
+describe('Search listingPage', () => {
   beforeEach(() => {
     cy.errorHandler();
     cy.visit('/')
@@ -12,12 +12,15 @@ describe('example to-do app', () => {
   })
 
   it('Should search by keyword', () => {
-    featureListingPage.searchInput.type('picturesque oasis');
+
+    featureListingPage.searchInput.type(listingDetails.title);
     featureListingPage.startSearch.click();
     featureListingPage.listingTitle.should('have.text', listingDetails.title)
+
   })
 
   it('Should search by bedrooms', () => {
+
     featureListingPage.bedroonButton.click();
     featureListingPage.twoBedrooms.click();
     featureListingPage.startSearch.click();
@@ -31,7 +34,8 @@ describe('example to-do app', () => {
   })
 
   it('Should search by city ', () => {
-    featureListingPage.cityInput.type('Armonk');
+
+    featureListingPage.cityInput.type(listingDetails.city);
     featureListingPage.startSearch.click();
     featureListingPage.moreInfoButton.should('have.text', 'More Info').click();
     featureListingPage.propertyName.should('have.text', listingDetails.title)
@@ -44,8 +48,10 @@ describe('example to-do app', () => {
   })
 
   it('Should search by price ', () => {
+
     cy.visit('/featured-listings?price=999999-1000001&city=Armonk')
     featureListingPage.priceRange;
     featureListingPage.urlCheck;
+    
   })
 })
