@@ -1,0 +1,5 @@
+{
+    "errorEmailReguired": "Email is required",
+    "errorPasswordRequired": "Password is required",
+    "errorInputDataValidationFailed": "Input data validation failed"
+}

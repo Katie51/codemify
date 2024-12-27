@@ -1,4 +1,20 @@
-// ***********************************************
+Cypress.Commands.add('errorHandler', () => {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      console.warn('Ignoring uncaught exception:', err);
+      return false;
+    });
+});
+
+    Cypress.Commands.add("loginApi", (email, password) => {
+        cy.request("POST", "/api/users/login", {
+          email: email,
+          password: password,
+        }).then((response) => {
+          window.localStorage.setItem("accessToken", response.body.accessToken);
+        });
+  });
+  
+  // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
 // existing commands.
