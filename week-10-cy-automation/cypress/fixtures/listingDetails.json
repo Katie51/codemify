@@ -1,0 +1,23 @@
+{
+    "title": "Modern picturesque oasis",
+    "city": "Armonk",
+    "description": "So comfortable, amazing home",
+    "address": "3 Richmond Road",
+    "zipCode": "10504",
+    "state": "NY",
+    "price": "1000000",
+    "bedrooms": "2",
+    "bathrooms": "3",
+    "garage": "2",
+    "sqft": "11000",
+    "lotSize": "2",
+    "listingInfo": [
+    "Asking Price: $ 1,000,000",
+    "Square Feet: 11000",
+    "Lot Size: 2",
+    "Garage: 2",
+    "Bedrooms: 2",
+    "Bathrooms: 3",
+    "Realtor: Mo Ko"
+  ]
+  }
