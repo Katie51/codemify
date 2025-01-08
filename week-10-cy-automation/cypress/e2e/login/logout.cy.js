@@ -1,14 +1,13 @@
 import dashboardPage from "../../page_object/dashboard.page"
 import userCredentials from "../../fixtures/userCredentials.json"
 
-describe('Login', () => {
-    beforeEach(() => {
+describe('Logout', () => {
+
+
+ it('Should log with existing account as user and logout', () => {
+
         cy.loginApi(userCredentials.user.email,userCredentials.user.password)
-         cy.visit('/dashboard/user/profile')
-    })
-
-    it('Should log with existing account as user and logout', () => {
-
+        cy.visit('/dashboard/user/profile')
         dashboardPage.roleLabel.should('have.text', userCredentials.user.labelRoleUser)
         dashboardPage.fullNameLabel.should('have.text', userCredentials.user.labelFirstNameLastName)
         dashboardPage.userIconBtn.click();
